@@ -15,12 +15,14 @@
     );
     
 
-    comando = conecta.prepareStatement(
-            "SELECT c.nome, c.url_imagem, a.chave, a.valor "
-          + "FROM atributos a "
-          + "JOIN cards c ON a.fk_card = c.id_card "
-          + "WHERE c.fk_tema IN (1, 2) "
-          + "ORDER BY c.nome, a.chave");
+comando = conecta.prepareStatement(
+    "SELECT c.nome, c.url_imagem, a.chave, a.valor " +
+    "FROM atributos a " +
+    "JOIN cards c ON a.fk_card = c.id_card " +
+    "WHERE c.fk_tema IN (1, 2) " +
+    "AND a.chave IN ('data_nascimento', 'peso', 'quadril', 'cintura', 'busto', 'altura', 'orientacao_sexual', 'hobbie', 'nacionalidade') " +  // <-- filtrando aqui
+    "ORDER BY c.nome, a.chave"
+);
     
     ResultSet resultado = comando.executeQuery();
 
@@ -140,120 +142,142 @@
     <div id="estilo-card">
       <div class="container-xl">
 
-    <% String nome = null;%>
-    <% while (resultado.next()) {%>
+    <%
+    String nome = null;
+    boolean primeiro = true;
+    while (resultado.next()) {
+        String nomeAtual = resultado.getString("nome");
 
-     <% if (nome == null || !nome.equals(resultado.getString("nome"))) {%>
+        // Novo card detectado
+        if (nome == null || !nome.equals(nomeAtual)) {
 
-     <div class="card">
-          <div class="area-img-info">
+            // Fecha o card anterior, se não for o primeiro
+            if (!primeiro) {
+%>
+                    </tbody>
+                  </table>
+                  <a href="#" class="ativo botao-jogar">Jogar</a>
+                </div> <!-- Fecha .info-personagem -->
+              </div> <!-- Fecha .area-img-info -->
+              <div class="area-links">
+                <div class="area-estrelas">
+                  <a href="#"><img class="ativo" src="../assets/pixel_ai/emoje-1.png" /></a>
+                  <a href="#"><img class="ativo" src="../assets/pixel_ai/emoje-2.png" /></a>
+                  <a href="#"><img class="ativo" src="../assets/pixel_ai/emoje-3.png" /></a>
+                  <a href="#"><img class="ativo" src="../assets/pixel_ai/emoje-4.png" /></a>
+                  <a href="#"><img class="ativo" src="../assets/pixel_ai/emoje-5.png" /></a>
+                </div>
+              </div> <!-- Fecha .area-links -->
+            </div> <!-- Fecha .card -->
+<%
+            }
 
-              <img class="img-principal img-principal-ativa" src="../assets/pixel_ai/<%= resultado.getString("url_imagem")%>.1.png"
-              alt="imagem da personagem 1" />
+            // Início do novo card
+            primeiro = false;
+%>
+            <div class="card">
+              <div class="area-img-info">
+                <img class="img-principal img-principal-ativa" src="../assets/pixel_ai/<%= resultado.getString("url_imagem") %>.1.png"
+                     alt="imagem da personagem <%= nomeAtual %>" />
 
-            <div class="info-personagem">
+                <div class="info-personagem">
+                  <div class="ecolha-thumb">
+                    <a href="#"><img class="ativo" src="../assets/pixel_ai/t-1.png" /></a>
+                    <a href="#"><img class="ativo" src="../assets/pixel_ai/t-2.png" /></a>
+                    <a href="#"><img class="ativo" src="../assets/pixel_ai/t-3.png" /></a>
+                    <a href="#"><img class="ativo" src="../assets/pixel_ai/t-4.png" /></a>
+                    <a href="#"><img class="ativo" src="../assets/pixel_ai/t-5.png" /></a>
+                  </div>
 
-              <div class="ecolha-thumb">
-                <a href="#">
-                  <img class="ativo" src="../assets/pixel_ai/t-1.png" />
-                </a>
+                  <img class="bandeira ativo" src="../assets/pixel_ai/Brasil.png" />
 
-                <a href="#">
-                  <img class="ativo" src="../assets/pixel_ai/t-2.png" />
-                </a>
+                  <div class="img-nome-personagem">
+                    <img class="imagem-circular ativo" src="../assets/pixel_ai/r-<%= resultado.getString("url_imagem") %>.png" alt="">
+                    <div>
+                      <h2 class="ativo">Estilo: Anime</h2>
+                      <p class="ativo"><%= nomeAtual %></p>
+                    </div>
+                  </div>
 
-                <a href="#">
-                  <img class="ativo" src="../assets/pixel_ai/t-3.png" />
-                </a>
+                  <table class="ativo">
+                    <tbody>
+<%
+            nome = nomeAtual;
+        }
+%>
+<%
+    String chave = resultado.getString("chave");
+    String valor = resultado.getString("valor");
 
-                <a href="#">
-                  <img class="ativo" src="../assets/pixel_ai/t-4.png" />
-                </a>
+    String chaveFormatada = "";
 
-                <a href="#">
-                  <img class="ativo" src="../assets/pixel_ai/t-5.png" />
-                </a>
+    switch (chave) {
+        case "data_nascimento":
+            chaveFormatada = "D. Nascimento";
+            break;
+        case "peso":
+            chaveFormatada = "Peso";
+            break;
+        case "quadril":
+            chaveFormatada = "Quadril";
+            break;
+        case "cintura":
+            chaveFormatada = "Cintura";
+            break;
+        case "busto":
+            chaveFormatada = "Busto";
+            break;
+        case "altura":
+            chaveFormatada = "Altura";
+            break;
+        case "estado_civil":
+            chaveFormatada = "Estado Civil";
+            break;
+        case "orientacao_sexual":
+            chaveFormatada = "Orient. Sexual";
+            break;
+        case "hobbie":
+            chaveFormatada = "Hobbie";
+            break;
+        case "nacionalidade":
+            chaveFormatada = "Nacionalidade";
+            break;
+        case "obs":
+            chaveFormatada = "Observações";
+            break;
+        default:
+            chaveFormatada = chave;
+    }
+%>
+<tr>
+    <td><strong><%= chaveFormatada %>:</strong></td>
+    <td><%= valor %></td>
+</tr>
 
-              </div>
-              <img class="bandeira ativo" src="../assets/pixel_ai/Brasil.png" />
-              <div class="img-nome-personagem">
-                <img class="imagem-circular ativo" src="../assets/pixel_ai/r-<%= resultado.getString("url_imagem")%>.png" alt="">
-                <div>
-                  <h2 class="ativo">Estilo: Anime</h2>
-                  <p class="ativo"><%= resultado.getString("nome")%></p>
+<%
+    }
+
+    // Fecha o último card
+    if (nome != null) {
+%>
+                    </tbody>
+                  </table>
+                  <a href="#" class="ativo botao-jogar">Jogar</a>
                 </div>
               </div>
-
-              <table class="ativo">
-                <tbody>
-                  <tr>
-                    <td><strong>Chave:</strong></td>
-                    <td>valor</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Chave:</strong></td>
-                    <td>valor</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Chave:</strong></td>
-                    <td>valor</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Chave:</strong></td>
-                    <td>valor</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Chave:</strong></td>
-                    <td>valor</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Chave:</strong></td>
-                    <td>valor</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Chave:</strong></td>
-                    <td>valor</td>
-                  </tr>
-                  <tr class="obs">
-                    <td colspan="2" class="obs">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <a href="#" class="ativo botao-jogar">Jagar</a>
-
+              <div class="area-links">
+                <div class="area-estrelas">
+                  <a href="#"><img class="ativo" src="../assets/pixel_ai/emoje-1.png" /></a>
+                  <a href="#"><img class="ativo" src="../assets/pixel_ai/emoje-2.png" /></a>
+                  <a href="#"><img class="ativo" src="../assets/pixel_ai/emoje-3.png" /></a>
+                  <a href="#"><img class="ativo" src="../assets/pixel_ai/emoje-4.png" /></a>
+                  <a href="#"><img class="ativo" src="../assets/pixel_ai/emoje-5.png" /></a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="area-links">
-            <div class="area-estrelas">
-
-              <a href="#">
-                <img class="ativo" src="../assets/pixel_ai/emoje-1.png" />
-              </a>
-
-              <a href="#">
-                <img class="ativo" src="../assets/pixel_ai/emoje-2.png" />
-              </a>
-
-              <a href="#">
-                <img class="ativo" src="../assets/pixel_ai/emoje-3.png" />
-              </a>
-
-              <a href="#">
-                <img class="ativo" src="../assets/pixel_ai/emoje-4.png" />
-              </a>
-
-              <a href="#">
-                <img class="ativo" src="../assets/pixel_ai/emoje-5.png" />
-              </a>
-            </div>
-          </div>
-        </div>
-     <%}%>  
-
-     <% nome = resultado.getString("nome");%>  
-<%}%>  
+<%
+    }
+%>
 
 
       </div>
