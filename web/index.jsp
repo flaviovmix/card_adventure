@@ -1,1 +1,1 @@
-<%response.sendRedirect(request.getContextPath()+ "/card/teste.jsp");%>
+<%response.sendRedirect(request.getContextPath()+ "/card/selecao_cards.jsp");%>
