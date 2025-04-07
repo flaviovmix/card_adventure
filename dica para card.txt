@@ -1,0 +1,42 @@
+<% 
+    String nome = null;
+    while (resultado.next()) {
+
+     if (nome == null || !nome.equals(resultado.getString("nome"))) {
+
+%>       
+
+
+select query
+
+int ct = 0;
+String nome = null;
+
+while (query.hasNext()){
+
+	CardBean card = (CardBean)query.next();
+
+	if (card.nome =! nome){
+		if (ct!=0)fecha card
+		abre card
+	}
+
+	add_atributo(card);
+
+	nome = card.nome
+	ct++;
+}
+if (ct>0)fecha card
+
+
+abre ana
+altura
+peso
+idade
+fecha ana (while)
+
+abre beatriz
+altura
+peso
+idade
+fecha beatriz (if fora)
