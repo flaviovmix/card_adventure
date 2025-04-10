@@ -1,3 +1,5 @@
+<%@page import="java.lang.StringBuilder"%>
+<%@page import="app.core.Conexao"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
@@ -6,27 +8,42 @@
     request.setCharacterEncoding("UTF-8");
     
     //CONECTAR COM O BANDO DE DADOS
-    Connection conecta;
-    PreparedStatement comando;
-
-    Class.forName("org.postgresql.Driver");
-    conecta = DriverManager.getConnection(
-        "jdbc:postgresql://localhost:5432/card_adventure", "postgres", "masterkey"
+    Conexao conexao = new Conexao(
+            "localhost", 
+            "5432", 
+            "card_adventure", 
+            "postgres", 
+            "masterkey"
     );
     
+    Connection conecta;
+    PreparedStatement comando;   
+    
+    conecta = conexao.abrirConexao();
+    
+            
+    StringBuilder sb = new StringBuilder();
+    sb.append("SELECT c.nome, c.url_imagem, a.chave, a.valor ");
+    sb.append("FROM atributos a ");
+    sb.append("JOIN cards c ON a.fk_card = c.id_card ");
+    sb.append("WHERE c.fk_tema IN (1, 2) ");
+    sb.append("AND a.chave IN ");
+    sb.append("('data_nascimento',"
+            + "'peso',"
+            + "'quadril',"
+            + "'cintura',"
+            + "'busto',"
+            + "'altura',"
+            + "'hobbie',"
+            + "'nacionalidade',"
+            + "'obs')"
+    );
+    sb.append("ORDER BY c.nome, a.chave");
 
-comando = conecta.prepareStatement(
-    "SELECT c.nome, c.url_imagem, a.chave, a.valor " +
-    "FROM atributos a " +
-    "JOIN cards c ON a.fk_card = c.id_card " +
-    "WHERE c.fk_tema IN (1, 2) " +
-    "AND a.chave IN ('data_nascimento', 'peso', 'quadril', 'cintura', 'busto', 'altura', 'hobbie', 'nacionalidade', 'obs') " +  // <-- filtrando aqui
-    "ORDER BY c.nome, a.chave"
-);
+    comando = conecta.prepareStatement(sb.toString());
+
     
     ResultSet resultado = comando.executeQuery();
-
-
 %>
 
 
