@@ -106,6 +106,8 @@
 
             primeiro = false;
 %>
+
+
         <div class="card">
           <div class="area-img-info">
             <img class="img-principal img-principal-ativa" src="../assets/pixel_ai/<%= resultado.getString("url_imagem") %>.1.png"
@@ -191,6 +193,7 @@
             </div>
           </div>
         </div>
+        
 <%
     }
 %>
@@ -198,6 +201,15 @@
     </div>
   </div>
 </main>
+
+  <ul class="paginacao">
+    <li class="desabilitado"><a href="#">&laquo;</a></li>
+    <li><a href="#">1</a></li>
+    <li class="ativo"><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">&raquo;</a></li>
+  </ul>
 
 <%= Footers.FooterPrincipal()%>
 

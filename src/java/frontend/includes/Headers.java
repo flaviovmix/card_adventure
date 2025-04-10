@@ -27,6 +27,7 @@ public class Headers {
                 sb.append("<link rel='stylesheet' href='../assets/css/cards/table.css'>");
                 sb.append("<link rel='stylesheet' href='../assets/css/cards/ancoras.css'>");
                 sb.append("<link rel='stylesheet' href='../assets/css/cards/info.css'>");
+                sb.append("<link rel='stylesheet' href='../assets/css/paginacao.css'>");
                 sb.append("<link rel='stylesheet' href='../assets/css/ajustes/ativo-inativo.css'>");
                 sb.append("<link rel='stylesheet' href='../assets/css/ajustes/responsividade.css'>");
 

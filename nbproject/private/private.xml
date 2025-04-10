@@ -4,15 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/card_adventure/web/card/selecao_personagens.jsp</file>
-            <file>file:/C:/card_adventure/web/card/selecao_cards.jsp</file>
-            <file>file:/C:/card_adventure/src/java/frontend/CssSelecaoCards.java</file>
-            <file>file:/C:/card_adventure/src/java/app/core/Conexao.java</file>
-            <file>file:/C:/card_adventure/src/java/cards/DesenharCards.java</file>
-            <file>file:/C:/card_adventure/web/assets/js/scripts.js</file>
-            <file>file:/C:/card_adventure/web/card/card.html</file>
-            <file>file:/C:/card_adventure/web/assets/css/cards/table.css</file>
-            <file>file:/C:/card_adventure/web/index.jsp</file>
-            <file>file:/C:/card_adventure/src/java/frontend/Footer.java</file>
+            <file>file:/C:/card_adventure/src/java/frontend/includes/Menus.java</file>
+            <file>file:/C:/card_adventure/web/entidades/FormCadastroCard.jsp</file>
+            <file>file:/C:/card_adventure/web/assets/forms/style.css</file>
         </group>
     </open-files>
 </project-private>
