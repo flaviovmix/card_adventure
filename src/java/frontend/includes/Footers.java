@@ -1,7 +1,7 @@
-package frontend;
+package frontend.includes;
 
-public class Footer {
-    public static String gerarFooter() {
+public class Footers {
+    public static String FooterPrincipal() {
         
         StringBuilder sb = new StringBuilder();
         

@@ -1,8 +1,8 @@
-package frontend;
+package frontend.includes;
 
 public class Menus {
     
-    public static String gerarMenuPrinpipal() {
+    public static String MenuPrincipal() {
         StringBuilder sb = new StringBuilder();
         
         sb.append("<nav class=\"menu-principal\">\n")

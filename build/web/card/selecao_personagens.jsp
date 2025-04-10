@@ -1,3 +1,6 @@
+<%@page import="frontend.includes.Footers"%>
+<%@page import="frontend.includes.Headers"%>
+<%@page import="frontend.includes.Menus"%>
 <%@page import="java.lang.StringBuilder"%>
 <%@page import="app.core.Conexao"%>
 <%@page import="java.sql.DriverManager"%>
@@ -23,22 +26,27 @@
     
             
     StringBuilder sb = new StringBuilder();
-    sb.append("SELECT c.nome, c.url_imagem, a.chave, a.valor ");
-    sb.append("FROM atributos a ");
-    sb.append("JOIN cards c ON a.fk_card = c.id_card ");
-    sb.append("WHERE c.fk_tema IN (1, 2) ");
-    sb.append("AND a.chave IN ");
-    sb.append("('data_nascimento',"
-            + "'peso',"
-            + "'quadril',"
-            + "'cintura',"
-            + "'busto',"
-            + "'altura',"
-            + "'hobbie',"
-            + "'nacionalidade',"
-            + "'obs')"
-    );
-    sb.append("ORDER BY c.nome, a.chave");
+    
+        sb.append("SELECT c.nome, c.url_imagem, a.chave, a.valor ");
+        sb.append("FROM atributos a ");
+        sb.append("JOIN cards c ON a.fk_card = c.id_card ");
+        sb.append("WHERE c.fk_tema IN (1, 2) ");
+        sb.append("AND a.chave IN (");
+            
+            //campos dos atributos a serem usados
+            sb.append("'data_nascimento', ");
+            sb.append("'peso', ");
+            sb.append("'quadril', ");
+            sb.append("'cintura', ");
+            sb.append("'busto', ");
+            sb.append("'altura', ");
+            sb.append("'hobbie', ");
+            sb.append("'nacionalidade', ");
+            
+            sb.append("'obs'");
+
+        sb.append(") ");
+        sb.append("ORDER BY c.nome, a.chave");
 
     comando = conecta.prepareStatement(sb.toString());
 
@@ -50,110 +58,13 @@
 
 
 <!DOCTYPE html>
-<html lang="pt-BR">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"
-    integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
-    integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous" />
-
-  <link id="tema" rel="stylesheet" href="../assets/css/temas/variaveis-tema-claro.css">
-  <link rel="stylesheet" href="../assets/css/ajustes/normalize.css">
-
-  <link rel="stylesheet" href="../assets/css/nav/barra-menu.css">
-  <link rel="stylesheet" href="../assets/css/nav/footer.css">
-  <link rel="stylesheet" href="../assets/css/cards/card.css">
-  <link rel="stylesheet" href="../assets/css/cards/table.css">
-  <link rel="stylesheet" href="../assets/css/cards/ancoras.css">
-  <link rel="stylesheet" href="../assets/css/cards/info.css">
-  <link rel="stylesheet" href="../assets/css/ajustes/ativo-inativo.css">
-
-  <link rel="stylesheet" href="../assets/css/ajustes/responsividade.css">
-
-
-</head>
+<%= Headers.HeaderPgCard() %>
 
 <body>
 
-  <nav class="menu-principal">
-
-    <ul class="menu">
-      <li>
-        <a href="#">ALUNOS</a>
-      </li>
-      <li>
-        <a href="#">VEGETAIS</a>
-      </li>
-      <li>
-        <a href="#">PIX AI</a>
-      </li>
-      <li>
-        <a href="#">GAROTAS</a>
-        <ul class="submenu">
-          <li>
-            <hr>
-          </li>
-          <li>
-            <a href="#">
-              <span>ZERAR TODAS</span>
-              <img class="emoje-menu inativo" src="../assets/pixel_ai/emoje-1.png" />
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span>ATIVAR TODAS</span>
-              <img class="emoje-menu" src="../assets/pixel_ai/emoje-5.png" />
-            </a>
-          </li>
-          <li>
-            <hr>
-          </li>
-          <li>
-            <a href="#">
-              <span>CAPA COMO FASE 1</span>
-              <img class="emoje-menu" src="../assets/pixel_ai/emoje-1.png" />
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span>CAPA COMO FASE 2</span>
-              <img class="emoje-menu" src="../assets/pixel_ai/emoje-2.png" />
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span>CAPA COMO FASE 3</span>
-              <img class="emoje-menu" src="../assets/pixel_ai/emoje-3.png" />
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span>CAPA COMO FASE 4</span>
-              <img class="emoje-menu" src="../assets/pixel_ai/emoje-4.png" />
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <span>CAPA COMO FASE 5</span>
-              <img class="emoje-menu" src="../assets/pixel_ai/emoje-5.png" />
-            </a>
-          </li>
-          <li>
-            <hr>
-          </li>
-        </ul>
-      </li>
-      <li><a href="#">TO-DO</a>
-      </li>
-    </ul>
-
-    <button id="btnTema" onclick="mudarTema()">Mudar para modo escuro</button>
-  </nav>
+<%= Menus.MenuPrincipal() %>  
+    
   <main>
   <div id="estilo-card">
     <div class="container-xl">
@@ -288,13 +199,10 @@
   </div>
 </main>
 
-  <footer>
-    <p> TODOS OS DIREITOS RESERVADOS</p>
-  </footer>
+<%= Footers.FooterPrincipal()%>
 
     <script src="../assets/js/scripts.js"></script>
 
 
 </body>
 
-</html>
