@@ -14,7 +14,7 @@ public class Menus {
           .append("      <ul class=\"submenu\">\n")
 
           .append("        <li><hr></li>\n")
-          .append("        <li><a href=\"#\"><span>NOVO CARD</span><img class=\"emoje-menu\" src=\"../assets/pixel_ai/emoje-1.png\" /></a></li>\n")
+          .append("        <li><a href=\"../entidades/FormCadastroCard.jsp\"><span>NOVO CARD</span><img class=\"emoje-menu\" src=\"../assets/pixel_ai/emoje-1.png\" /></a></li>\n")
                 
           .append("        <li><hr></li>\n")
           .append("        <li><a href=\"#\"><span>ZERAR TODAS</span><img class=\"emoje-menu inativo\" src=\"../assets/pixel_ai/emoje-1.png\" /></a></li>\n")

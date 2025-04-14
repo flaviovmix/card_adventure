@@ -70,9 +70,9 @@ input[type="text"],
 input[type="number"],
 input[type="email"],
 select, .campo-texto {
-    padding: 10px;
+/*    padding: 10px;
     border-radius: 5px;
-    border: 2px solid #000;
+    border: 2px solid #000;*/
     outline: none;
 }
 
@@ -83,7 +83,7 @@ select, .campo-texto {
 input:focus, textarea:focus {
     outline: none; /* Remove o contorno padrão */
     box-shadow: none !important; /* Remove o efeito de sombra */
-    border: 2px solid #000; /* Opcional: define uma borda padrão */
+    /*border: 2px solid #000;  Opcional: define uma borda padrão */
     border-color: #000 !important; 
     box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3) !important;
 }
