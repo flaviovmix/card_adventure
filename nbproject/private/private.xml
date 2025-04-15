@@ -7,7 +7,13 @@
             <file>file:/C:/card_adventure/src/java/frontend/includes/Menus.java</file>
             <file>file:/C:/card_adventure/web/entidades/FormCadastroCard.jsp</file>
             <file>file:/C:/card_adventure/web/assets/css/style.css</file>
+            <file>file:/C:/card_adventure/src/java/app/core/Conexao.java</file>
+            <file>file:/C:/card_adventure/src/java/cards/DesenharCards.java</file>
+            <file>file:/C:/card_adventure/web/card/salvarCard.jsp</file>
             <file>file:/C:/card_adventure/web/assets/forms/style.css</file>
+            <file>file:/C:/card_adventure/src/java/cards/CardDAO.java</file>
+            <file>file:/C:/card_adventure/web/index.jsp</file>
+            <file>file:/C:/card_adventure/src/java/cards/CardBean.java</file>
         </group>
     </open-files>
 </project-private>

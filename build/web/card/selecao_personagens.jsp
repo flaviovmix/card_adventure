@@ -101,7 +101,7 @@
             if ("obs".equals(chave)) {
                 obs = valor;
             } else if ("thumb".equals(chave)) {
-                thumb = valor;
+                thumb = valor;                
             } else {
                 atributos.add(new String[]{chave, valor});
             }

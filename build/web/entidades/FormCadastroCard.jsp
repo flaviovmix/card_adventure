@@ -21,7 +21,7 @@
                     </div>
                     
                     <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                        <label for="telefone" class="form-label">Url da Imagem:</label>
+                        <label for="telefone" class="form-label">Thumbnail do Card:</label>
                       <input type="file" class="form-control" id="inputGroupFile02">
                     </div>                    
 
@@ -98,39 +98,220 @@
             <div class="row mt-3">
               <!-- Coluna 1 -->
               <div class="col-md-6">
-                <% for (int i = 1; i <= 4; i++) { %>
+                <h3>Imagem das Fases</h3>
+                
+                
+                
                 <div class="mb-3">
-                  <label class="form-label">Atributo <%= i %>:</label>
-                  <div class="row g-2">
-                    <div class="col-6">
-                      <input type="text" class="form-control" name="chave<%= i %>" placeholder="Nome do atributo" required>
+                    <div class="row g-2">
+                        <div class="col-12">
+                            <input type="file" class="form-control" id="inputGroupFile02">
+                        </div>
                     </div>
-                    
-                    <div class="col-6">
-                      <input type="text" class="form-control" name="valor<%= i %>" placeholder="Valor do atributo" required>
+                </div>                
+                
+                
+                <div class="mb-3">
+                    <div class="row g-2">
+                        <div class="col-12">
+                            <input type="file" class="form-control" id="inputGroupFile02">
+                        </div>
                     </div>
-                  </div>
-                </div>
-                <% } %>
+                </div>                
+                
+                
+                <div class="mb-3">
+                    <div class="row g-2">
+                        <div class="col-12">
+                            <input type="file" class="form-control" id="inputGroupFile02">
+                        </div>
+                    </div>
+                </div>                
+                
+                
+                <div class="mb-3">
+                    <div class="row g-2">
+                        <div class="col-12">
+                            <input type="file" class="form-control" id="inputGroupFile02">
+                        </div>
+                    </div>
+                </div>                
+                
+                
+                <div class="mb-3">
+                    <div class="row g-2">
+                        <div class="col-12">
+                            <input type="file" class="form-control" id="inputGroupFile02">
+                        </div>
+                    </div>
+                </div>                
+                
+                
+                <div class="mb-3">
+                    <div class="row g-2">
+                        <div class="col-12">
+                            <input type="file" class="form-control" id="inputGroupFile02">
+                        </div>
+                    </div>
+                </div>                
+                
+                
+                <div class="mb-3">
+                    <div class="row g-2">
+                        <div class="col-12">
+                            <input type="file" class="form-control" id="inputGroupFile02">
+                        </div>
+                    </div>
+                </div>                
+                
+                
+                <div class="mb-3">
+                    <div class="row g-2">
+                        <div class="col-12">
+                            <input type="file" class="form-control" id="inputGroupFile02">
+                        </div>
+                    </div>
+                </div>                
+                
+                
+<!--                  
+<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+    <label for="telefone" class="form-label">Thumbnail:</label>
+  <input type="file" class="form-control" id="inputGroupFile02">
+</div>    
+-->
+                  
+
+                            
+    
+               
+                
               </div>
               
               
 
               <!-- Coluna 2 -->
               <div class="col-md-6">
-                <% for (int i = 5; i <= 8; i++) { %>
+                <h3>Atributos do Personagem</h3>
+                
                 <div class="mb-3">
-                  <label class="form-label">Atributo <%= i %>:</label>
                   <div class="row g-2">
                     <div class="col-6">
-                      <input type="text" class="form-control" name="chave<%= i %>" placeholder="Nome do atributo" required>
+                      <input type="text" class="form-control" name="chave1" placeholder="Ex: Altura" required>
                     </div>
                     <div class="col-6">
-                      <input type="text" class="form-control" name="valor<%= i %>" placeholder="Valor do atributo" required>
+                      <input type="text" class="form-control" name="valor1" placeholder="1.74 cm" required>
                     </div>
                   </div>
                 </div>
-                <% } %>
+                
+                <div class="mb-3">
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <input type="text" class="form-control" name="chave1" placeholder="Ex: Peso" required>
+                    </div>
+                    <div class="col-6">
+                      <input type="text" class="form-control" name="valor1" placeholder="58 kg" required>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <input type="text" class="form-control" name="chave1" placeholder="Ex: Busto" required>
+                    </div>
+                    <div class="col-6">
+                      <input type="text" class="form-control" name="valor1" placeholder="83 cm" required>
+                    </div>
+                  </div>
+                </div>
+               
+                
+                <div class="mb-3">
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <input type="text" class="form-control" name="chave1" placeholder="Ex: Cintura" required>
+                    </div>
+                    <div class="col-6">
+                      <input type="text" class="form-control" name="valor1" placeholder="38 cm" required>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <input type="text" class="form-control" name="chave1" placeholder="Ex: Quadril" required>
+                    </div>
+                    <div class="col-6">
+                      <input type="text" class="form-control" name="valor1" placeholder="63 cm" required>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <input type="text" class="form-control" name="chave1" placeholder="Ex: Estado Civil'" required>
+                    </div>
+                    <div class="col-6">
+                      <input type="text" class="form-control" name="valor1" placeholder="Solteira" required>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <input type="text" class="form-control" name="chave1" placeholder="Ex: Orietação Sexual" required>
+                    </div>
+                    <div class="col-6">
+                      <input type="text" class="form-control" name="valor1" placeholder="Hétero" required>
+                    </div>
+                  </div>
+                </div>                
+                
+                <div class="mb-3">
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <input type="text" class="form-control" name="chave1" placeholder="Ex: Nacionalidade" required>
+                    </div>
+                    <div class="col-6">
+                      <input type="text" class="form-control" name="valor1" placeholder="Italiana" required>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                  <div class="row g-2">
+
+                    <div class="col-6">
+                    
+                        <label for="fk_tema" class="form-label">Bandeira do Páis</label>
+                        <select class="form-control campo-texto" id="fk_classificacao" name="fk_classificacao" required>
+                            <option value="">Selecione um país</option>
+                            <option value="1">Brasil</option>
+                            <option value="2">Argentina</option>
+                            <option value="3">Estados Unidos</option>
+                            <option value="4">Canadá</option>
+                            <option value="5">Alemanha</option>
+                            <option value="6">França</option>
+                            <option value="7">Itália</option>
+                            <option value="8">Japão</option>
+                            <option value="9">China</option>
+                            <option value="10">Índia</option>
+                            <option value="11">Austrália</option>
+                            <option value="12">México</option>
+                            <option value="13">Espanha</option>
+                            <option value="14">Portugal</option>
+                            <option value="15">Reino Unido</option>
+
+                        </select>
+                     
+                    </div>
+                  </div>
+                </div>
               </div>            <!-- Observação -->
                     <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12">
                         <label for="obs" class="form-label">Observação:</label>
