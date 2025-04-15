@@ -82,7 +82,6 @@
 
 <%
     String obs = null;
-    String nome = null;
     String thumb = null;
     boolean primeiro = true;
     java.util.List<String[]> atributos = new java.util.ArrayList<String[]>();

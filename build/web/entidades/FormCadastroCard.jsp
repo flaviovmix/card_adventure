@@ -11,7 +11,7 @@
         <div class="container-xl">
             <div class="row">
                 
-                <form class="col-8 mx-auto" id="form_cliente" method="post" action="salvarAluno.jsp">
+                <form class="col-8 mx-auto" id="form_cliente" method="post" action="../card/salvarCard.jsp">
                 <h2>NOVO CARD</h2>  
                 <fieldset class="row g-3 cadastro">
 
@@ -39,7 +39,7 @@
 
                     <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
                         <label for="fk_tema" class="form-label">Categoria</label>
-                        <select class="form-control campo-texto" id="fk_tema" name="fk_tema" required>
+                        <select class="form-control campo-texto" id="fk_classificacao" name="fk_classificacao" required>
                             <option value="">Selecione uma categora</option>
                             <option value="1">Livre</option>
                             <option value="2">12 anos</option>
