@@ -9,13 +9,7 @@ public class CardDAO {
 
     public void adicionarCard(CardBean card) throws SQLException {
         
-        Conexao conexao = new Conexao(
-                "localhost", 
-                "5432", 
-                "card_adventure", 
-                "postgres", 
-                "masterkey"
-        );
+        Conexao conexao = new Conexao("card_adventure");
         Connection conecta = conexao.abrirConexao();   
         String sql;
 

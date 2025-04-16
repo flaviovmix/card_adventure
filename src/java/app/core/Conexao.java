@@ -13,12 +13,12 @@ public class Conexao {
 
     private Connection conexao;
 
-    public Conexao(String host, String porta, String banco, String usuario, String senha) {
-        this.host = host;
-        this.porta = porta;
+    public Conexao(String banco) {
+        this.host = "localhost";
+        this.porta = "5432";
         this.banco = banco;
-        this.usuario = usuario;
-        this.senha = senha;
+        this.usuario = "postgres";
+        this.senha = "masterkey";
     }
 
     public Connection abrirConexao() {
