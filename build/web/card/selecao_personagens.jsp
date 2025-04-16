@@ -12,7 +12,7 @@
 
     // Parâmetros de página via URL, ex: ?pagina=1
     int pagina = 1;
-    int limite = 10 * 5; // Número de cards por página
+    int limite = 10 * 7; // Número de cards por página
 
     String paginaStr = request.getParameter("pagina");
     if (paginaStr != null && !paginaStr.isEmpty()) {
@@ -184,6 +184,8 @@
               <a href="#"><img class="ativo" src="../assets/pixel_ai/emoje-3.png" /></a>
               <a href="#"><img class="ativo" src="../assets/pixel_ai/emoje-4.png" /></a>
               <a href="#"><img class="ativo" src="../assets/pixel_ai/emoje-5.png" /></a>
+              <a href="#"><img class="ativo" src="../assets/pixel_ai/emoje-6.png" /></a>
+              <a href="#"><img class="ativo" src="../assets/pixel_ai/emoje-7.png" /></a>
             </div>
           </div>
         </div>
@@ -202,7 +204,7 @@
         <a href="?pagina=<%= (pagina > 1 ? pagina - 1 : 1) %>">&laquo;</a>
       </li>
 
-      <% for (int i = 1; i <= 2; i++) { %>
+      <% for (int i = 1; i <= 1; i++) { %>
         <li class="<%= (i == pagina ? "ativo" : "") %>">
           <a href="?pagina=<%= i %>"><%= i %></a>
         </li>
