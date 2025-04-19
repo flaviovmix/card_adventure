@@ -58,12 +58,7 @@
     ResultSet resultado = comando.executeQuery();
 %>
 
-
-
-
-
 <!DOCTYPE html>
-
 <%= Headers.HeaderPgCard() %>
 
 <body>
@@ -77,7 +72,7 @@
 <%
     String obs = null;
     String thumb = null;
-    boolean primeiro = true;
+    //boolean primeiro = true;
     java.util.List<String[]> atributos = new java.util.ArrayList<String[]>();
 
     boolean temMais = resultado.next();
